@@ -1,5 +1,5 @@
 # Project log: keshav-talwar.github.io
-<!-- last-updated: 2026-11-22T09:50:34Z (maintained by /updaterepo) -->
+<!-- last-updated: 2026-11-22T09:55:46Z (maintained by /updaterepo) -->
 
 ## Current state
 - Single static page `index.html` (no build step): fixed left sidebar (KT avatar placeholder, name,
@@ -8,7 +8,7 @@
   `data-theme` + `prefers-color-scheme`, News "Show more" expander, active-section nav highlight.
 - Layout modelled on https://sukratii.github.io (structure only; own palette and content).
 - Content is taken only from verified repo facts / `69cad…/PROFILE.md`. FLMSec paper shown as
-  **Under review** (Keshav's decision, 2026-11-22). Links go only to public repos.
+  **Manuscript · not yet submitted** (it was never submitted; no 'lead author' / 'under review'). Links go only to public repos.
 - Verified with Playwright screenshots at 1366px (light + dark) and 390px (mobile): no horizontal scroll.
 - **LIVE** at https://keshav-talwar.github.io since 2026-11-22 14:51 IST (GitHub Pages, branch `main`, path `/`,
   HTTPS enforced). Pushing to `main` redeploys in about a minute.
@@ -29,7 +29,7 @@
 
 ## Decisions
 - 2026-11-22: domain `keshav-talwar.github.io` (Keshav chose `keshav-talwar` over keeping `keshav-cse`).
-- 2026-11-22: keep the FLMSec paper on the public site, labelled "Under review".
+- 2026-11-22: keep the paper on the site, labelled "Manuscript · not yet submitted" (the earlier "Under review" label was wrong).
 - 2026-11-22: own navy palette instead of the reference site's terracotta; Inter font kept.
 - 2026-11-22: removed unverifiable dates (when Keshav joined SR DTU).
 
@@ -45,7 +45,7 @@
 - Decision: the public page keeps the probe findings at summary level with limitations; jailbreak screenshots and
   harmful outputs stay in the private Overleaf write-up.
 ### 2026-11-22: site built, renamed, waiting on GitHub
-- Did: built `index.html` from the reference layout; marked paper "Under review"; renamed account to
+- Did: built `index.html` from the reference layout; labelled the paper (later corrected to "manuscript, not yet submitted"); renamed account to
   `keshav-talwar` and moved folder `Keshav-cse.github.io` → `keshav-talwar.github.io`; updated links.
 - Result: renders correctly (desktop, dark, mobile). Repo creation was rate-limited for ~1 h; the retry job got through at 14:51 IST and the site went live (HTTP 200).
 - Learned: bulk repo creation triggers a long GitHub limit; GitHub user-site name must equal the username.
