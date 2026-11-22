@@ -7,7 +7,7 @@
   Projects / Experience & Education / Skills. Inter font, navy accent `#1e3c78`, dark mode via
   `data-theme` + `prefers-color-scheme`, News "Show more" expander, active-section nav highlight.
 - Layout modelled on https://sukratii.github.io (structure only; own palette and content).
-- Content is taken only from verified repo facts / `69cad…/PROFILE.md`. FLMSec paper shown as
+- Content is taken only from verified repo facts / `69cad…/PROFILE.md`. Paper shown as
   **Manuscript · not yet submitted** (it was never submitted; no 'lead author' / 'under review'). Links go only to public repos.
 - Verified with Playwright screenshots at 1366px (light + dark) and 390px (mobile): no horizontal scroll.
 - **LIVE** at https://keshav-talwar.github.io since 2026-11-22 14:51 IST (GitHub Pages, branch `main`, path `/`,
