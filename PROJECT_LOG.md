@@ -1,5 +1,5 @@
 # Project log: keshav-talwar.github.io
-<!-- last-updated: 2026-11-22T09:11:10Z (maintained by /updaterepo) -->
+<!-- last-updated: 2026-11-22T09:21:28Z (maintained by /updaterepo) -->
 
 ## Current state
 - Single static page `index.html` (no build step): fixed left sidebar (KT avatar placeholder, name,
@@ -10,11 +10,8 @@
 - Content is taken only from verified repo facts / `69cad…/PROFILE.md`. FLMSec paper shown as
   **Under review** (Keshav's decision, 2026-11-22). Links go only to public repos.
 - Verified with Playwright screenshots at 1366px (light + dark) and 390px (mobile): no horizontal scroll.
-- **NOT LIVE YET.** Committed locally only; no `origin`. GitHub refuses to create the repo
-  ("You have created too many repositories, too quickly"), on CLI and website alike.
-  A background job (started 2026-11-22 ~14:45 IST) retries every 10 min for 24 h, then pushes,
-  enables Pages (branch `main`, path `/`) and checks https://keshav-talwar.github.io returns 200.
-  It only runs while that Claude Code session stays open.
+- **LIVE** at https://keshav-talwar.github.io since 2026-11-22 14:51 IST (GitHub Pages, branch `main`, path `/`,
+  HTTPS enforced). Pushing to `main` redeploys in about a minute.
 
 ## Tried: don't repeat
 | Approach | Last tried | Result | Why it failed / note |
@@ -37,9 +34,6 @@
 - 2026-11-22: removed unverifiable dates (when Keshav joined SR DTU).
 
 ## Open questions / next steps
-- [ ] Get the repo created once GitHub lifts the limit (or run "push the site" in a new session):
-      `gh repo create keshav-talwar/keshav-talwar.github.io --public --source . --remote origin --push`,
-      then `gh api -X POST repos/keshav-talwar/keshav-talwar.github.io/pages -f "source[branch]=main" -f "source[path]=/"`
 - [ ] Add a real photo (`assets/photo.jpg`, replace the `KT` placeholder).
 - [ ] Add the steer-to-C spoofing demo GIF (in `gnss-spoof-lab/media/`) to the Research section?
 - [ ] Update when the paper's review outcome is known.
@@ -48,5 +42,5 @@
 ### 2026-11-22: site built, renamed, waiting on GitHub
 - Did: built `index.html` from the reference layout; marked paper "Under review"; renamed account to
   `keshav-talwar` and moved folder `Keshav-cse.github.io` → `keshav-talwar.github.io`; updated links.
-- Result: renders correctly (desktop, dark, mobile). Not published: repo creation rate-limited all afternoon.
+- Result: renders correctly (desktop, dark, mobile). Repo creation was rate-limited for ~1 h; the retry job got through at 14:51 IST and the site went live (HTTP 200).
 - Learned: bulk repo creation triggers a long GitHub limit; GitHub user-site name must equal the username.
