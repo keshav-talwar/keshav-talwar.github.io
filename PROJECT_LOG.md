@@ -1,5 +1,5 @@
 # Project log: keshav-talwar.github.io
-<!-- last-updated: 2026-11-22T10:04:42Z (maintained by /updaterepo) -->
+<!-- last-updated: 2026-11-22T10:22:12Z (maintained by /updaterepo) -->
 
 ## Current state
 - Single static page `index.html` (no build step): fixed left sidebar (KT avatar placeholder, name,
@@ -16,6 +16,7 @@
 ## Tried: don't repeat
 | Approach | Last tried | Result | Why it failed / note |
 |---|---|---|---|
+| Naming the target venue (FLMSec / NeurIPS workshop) on the site, CVs or docs | 2026-11-22 | ❌ removed at Keshav's request | Paper isn't submitted; don't name a venue anywhere public |
 | Creating many GitHub repos back-to-back (9 via `gh repo create` in ~3 min) | 2026-11-22 | ❌ Account hit "created too many repositories, too quickly" for hours; blocked this site | Space out repo creation; create the site repo first next time |
 | Creating the repo on github.com/new to bypass the limit | 2026-11-22 | ❌ Same error on the website | Limit is per account, not per client |
 | Site name `keshavt.github.io` / `keshavtalwar` / `keshavv` | 2026-11-22 | ❌ Usernames taken (keshavt 2014, KeshavTalwar 2020 not Keshav's, keshavv 2016) | User site must equal the GitHub username |
@@ -42,6 +43,9 @@
 - [ ] Update when the paper's review outcome is known.
 
 ## History
+### 2026-11-22 (later): venue mentions removed
+- Did: removed every FLMSec mention from the site; paper .tex files and README.txt left untouched (they're the manuscript itself)
+
 ### 2026-11-22 (later): research journey section
 - Did: added a "Research Journey" section (8-step timeline with kept/dropped ideas, pilot probe summary, next steps)
   from the Research_progress Overleaf doc (`6b02ad8b…/main.tex`), plus nav link and a news item.
