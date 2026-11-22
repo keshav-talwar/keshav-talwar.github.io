@@ -1,6 +1,6 @@
-# keshav-cse.github.io
+# keshav-talwar.github.io
 
-Personal site: https://keshav-cse.github.io. A single static page (`index.html`, no build step) with a
+Personal site: https://keshav-talwar.github.io. A single static page (`index.html`, no build step) with a
 fixed sidebar, About / News / Research / Projects / Experience / Skills sections, and a dark-mode toggle.
 
 ## Editing
