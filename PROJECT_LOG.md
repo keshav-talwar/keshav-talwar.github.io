@@ -1,5 +1,5 @@
 # Project log: keshav-talwar.github.io
-<!-- last-updated: 2026-11-22T09:55:46Z (maintained by /updaterepo) -->
+<!-- last-updated: 2026-11-22T10:04:42Z (maintained by /updaterepo) -->
 
 ## Current state
 - Single static page `index.html` (no build step): fixed left sidebar (KT avatar placeholder, name,
@@ -28,6 +28,9 @@
 - Renaming the GitHub account `Keshav-cse` → `keshav-talwar` via Settings → Account; all repo remotes updated and pushed (2026-11-22)
 
 ## Decisions
+- 2026-11-22: link every project to its repo. Made public: f1-race-predictor, chess-engine, rag-prototype, px4-gz-custom-sim
+  (history scanned for keys first: clean). Kept private, marked "available on request": the paper + its code, and the GNSS
+  spoofing repos (gnss-spoof-lab, Spoofing-of-drone-in-simulation). Human detection and OS-lab code have no public repo.
 - 2026-11-22: domain `keshav-talwar.github.io` (Keshav chose `keshav-talwar` over keeping `keshav-cse`).
 - 2026-11-22: keep the paper on the site, labelled "Manuscript · not yet submitted" (the earlier "Under review" label was wrong).
 - 2026-11-22: own navy palette instead of the reference site's terracotta; Inter font kept.
