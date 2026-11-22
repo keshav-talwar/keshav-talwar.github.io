@@ -1,5 +1,5 @@
 # Project log: keshav-talwar.github.io
-<!-- last-updated: 2026-11-22T09:21:28Z (maintained by /updaterepo) -->
+<!-- last-updated: 2026-11-22T09:50:34Z (maintained by /updaterepo) -->
 
 ## Current state
 - Single static page `index.html` (no build step): fixed left sidebar (KT avatar placeholder, name,
@@ -39,6 +39,11 @@
 - [ ] Update when the paper's review outcome is known.
 
 ## History
+### 2026-11-22 (later): research journey section
+- Did: added a "Research Journey" section (8-step timeline with kept/dropped ideas, pilot probe summary, next steps)
+  from the Research_progress Overleaf doc (`6b02ad8b…/main.tex`), plus nav link and a news item.
+- Decision: the public page keeps the probe findings at summary level with limitations; jailbreak screenshots and
+  harmful outputs stay in the private Overleaf write-up.
 ### 2026-11-22: site built, renamed, waiting on GitHub
 - Did: built `index.html` from the reference layout; marked paper "Under review"; renamed account to
   `keshav-talwar` and moved folder `Keshav-cse.github.io` → `keshav-talwar.github.io`; updated links.

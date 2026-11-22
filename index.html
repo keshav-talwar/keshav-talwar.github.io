@@ -118,6 +118,36 @@
 
   footer { margin-top: 3rem; padding-top: 1rem; border-top: 1px solid var(--border); font-size: .85rem; color: var(--text-light); }
 
+  /* research journey timeline */
+  .journey-intro { margin-bottom: 1.2rem; }
+  .timeline { list-style: none; position: relative; margin: 0 0 1.4rem; padding-left: 1.6rem; }
+  .timeline::before { content: ""; position: absolute; left: .42rem; top: .4rem; bottom: .4rem; width: 2px; background: var(--border); }
+  .timeline > li { position: relative; margin-bottom: 1.1rem; }
+  .timeline > li::before {
+    content: ""; position: absolute; left: -1.6rem; top: .38rem; width: .85rem; height: .85rem;
+    border-radius: 50%; background: var(--bg); border: 2px solid var(--link);
+  }
+  .timeline > li.now::before { background: var(--link); }
+  .step { font-size: .78rem; font-weight: 600; letter-spacing: .04em; text-transform: uppercase; color: var(--text-light); }
+  .timeline h3 { font-size: 1rem; font-weight: 600; margin: .05rem 0 .2rem; }
+  .timeline p { font-size: .95rem; }
+  .dropped { margin-top: .3rem; font-size: .88rem; color: var(--text-light); }
+  .dropped s { text-decoration-thickness: 1px; }
+  .tag.kept { background: #e6f4ea; color: #1e6b34; }
+  .tag.drop { background: #fbe9e7; color: #a33a2a; }
+  .tag.open { background: var(--tag-bg); color: var(--link); }
+  :root[data-theme="dark"] .tag.kept { background: #183323; color: #8fd6a4; }
+  :root[data-theme="dark"] .tag.drop { background: #3a1d19; color: #f0a597; }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) .tag.kept { background: #183323; color: #8fd6a4; }
+    :root:not([data-theme="light"]) .tag.drop { background: #3a1d19; color: #f0a597; }
+  }
+  .finding { border: 1px solid var(--border); border-radius: 8px; padding: 1rem 1.2rem; margin: .4rem 0 1.4rem; background: var(--sidebar-bg); }
+  .finding h3 { font-size: 1rem; font-weight: 600; margin-bottom: .4rem; }
+  .finding ul { padding-left: 1.15rem; }
+  .finding li { margin-bottom: .25rem; }
+  .finding .note { font-size: .86rem; color: var(--text-light); margin-top: .5rem; }
+
   /* mobile: sidebar becomes a header block */
   @media (max-width: 900px) {
     .sidebar { position: static; width: auto; height: auto; border-right: none; border-bottom: 1px solid var(--border); padding: 2rem 16px; align-items: center; text-align: center; }
@@ -144,6 +174,7 @@
     <li><a href="#about">About</a></li>
     <li><a href="#news">News</a></li>
     <li><a href="#research">Research</a></li>
+    <li><a href="#journey">Research Journey</a></li>
     <li><a href="#projects">Projects</a></li>
     <li><a href="#experience">Experience</a></li>
     <li><a href="#skills">Skills</a></li>
@@ -184,6 +215,7 @@
   <section id="news">
     <h2>News</h2>
     <ul class="news" id="newsList">
+      <li><span class="date">[11/2026]</span><span>Wrote up my <a href="#journey">research journey</a>: eight steps from a gatekeeper guard to an attacker vs. defender game.</span></li>
       <li><span class="date">[2026]</span><span>Lead-authored <strong>“Does Warning Help? On Alerting Language Models to Jailbreaks Before They Act”</strong> now <strong>under review</strong> at the <strong>FLMSec</strong> workshop, <strong>NeurIPS 2026</strong>.</span></li>
       <li><span class="date">[06/2026]</span><span>Built a defense against <strong>Crescendo</strong> multi-turn jailbreaks for Llama-3.2-3B (<a href="https://github.com/keshav-talwar/Crescendo_Attack_Intro">code</a>).</span></li>
       <li><span class="date">[2026]</span><span>GNSS spoofing testbed: a stealthy walk-off spoof drags a simulated PX4 drone 300&nbsp;m with no position jump. The LiDAR-based detector catches it.</span></li>
@@ -230,6 +262,93 @@
       </ul>
       <div class="stack"><span class="tag">PX4</span><span class="tag">ROS 2</span><span class="tag">Gazebo</span><span class="tag">SLAM</span><span class="tag">GNSS / SDR</span></div>
     </div>
+  </section>
+
+  <section id="journey">
+    <h2>Research Journey</h2>
+    <p class="journey-intro">How my LLM-safety work actually evolved, written up from my 43-page research notebook.
+      It ran on two tracks that kept feeding each other: <strong>measuring</strong> how humour, persona and bias get models to
+      produce stereotypes and toxicity, and <strong>defending</strong> against multi-turn attacks without over-refusing
+      harmless dark humour. Dropped ideas are listed too, because they shaped what came next.</p>
+
+    <ol class="timeline">
+      <li>
+        <div class="step">Step 1</div>
+        <h3>A gatekeeper guard <span class="tag kept">kept</span></h3>
+        <p>A guard in front of the model with <em>lenient</em> and <em>non-lenient</em> modes, so dark jokes aren't treated
+          like real harm, and escalation to a human only for doubtful cases.</p>
+        <div class="dropped">Dropped: <s>a "risk meter"</s></div>
+      </li>
+      <li>
+        <div class="step">Step 2</div>
+        <h3>Giving the guard a memory <span class="tag kept">kept</span></h3>
+        <p>Multi-turn attacks escalate slowly, so the guard needs to remember the conversation. Turn-by-turn similarity
+          became an RNN, then a GRU (DeepContext-style), then a <strong>GRU + graph neural network</strong> that captures
+          the order and branching of a conversation.</p>
+        <div class="dropped">Dropped: <s>cosine similarity between turns</s></div>
+      </li>
+      <li>
+        <div class="step">Step 3</div>
+        <h3>Humour as a jailbreak</h3>
+        <p>Noticed that a harmful request phrased as a joke is often treated as harmless, and that long, friendly
+          conversations weaken safety. Designed scores to tell humour from actual harm.</p>
+      </li>
+      <li>
+        <div class="step">Step 4</div>
+        <h3>A proposal: humour, bias amplification and personality <span class="tag kept">kept</span></h3>
+        <p>Measure how models amplify their own biases, build a dark-humour dataset, and test whether
+          <strong>persona prompts</strong> (HEXACO personality) change hate and stereotype output.</p>
+        <div class="dropped">Dropped: <s>a region / multilingual bias study</s> (kept only an English–Arabic dataset)</div>
+      </li>
+      <li>
+        <div class="step">Step 5</div>
+        <h3>Attack catalogue and model sets</h3>
+        <p>Narrowed the attacks to humour, persona, stereotype, bias, toxicity and a memory-based attack, and chose which
+          models to test each one on.</p>
+      </li>
+      <li>
+        <div class="step">Step 6 · Jun 2026</div>
+        <h3>A pilot probe on public chatbots</h3>
+        <p>Ran a small probe of bias, stereotype and toxicity on ChatGPT, Claude, Gemini and Grok (findings below).</p>
+      </li>
+      <li>
+        <div class="step">Step 7</div>
+        <h3>Defence v2: adaptive and bounded <span class="tag kept">kept</span></h3>
+        <p>Bounded the conversation graph (green/gray boxes of size K) so latency doesn't grow with the conversation, made
+          responses adaptive, added human feedback on the graph, and a hierarchical classifier over category
+          combinations (e.g. hate vs. humorous hate).</p>
+        <div class="dropped">Dropped: <s>an extra detection stage that failed</s>, <s>a garbage-output honeypot</s>
+          (hurts credibility), <s>a stress test on a fixed pipeline</s> (results were bad, which led to step 8)</div>
+      </li>
+      <li class="now">
+        <div class="step">Step 8 · current direction</div>
+        <h3>An attacker vs. defender game <span class="tag open">in progress</span></h3>
+        <p>A fixed pipeline breaks under stress, so the defence has to learn: an attacker LLM tries to jailbreak, a defender
+          tries to block it without flagging benign prompts, a human and a teacher model step in when the defender fails,
+          and both sides adapt after losing. The "remember what beat the model" idea from this track became the warning store
+          in my <a href="#research">FLMSec paper</a>.</p>
+      </li>
+    </ol>
+
+    <div class="finding">
+      <h3>Pilot probe findings (June 2026)</h3>
+      <ul>
+        <li><strong>Implicit bias in aligned models:</strong> in all 6 forced-choice word-association runs (race and gender),
+          the models went along with the stereotype without refusing. Only 1 of 33 race answers and 0 of 42 gender answers
+          were counter-stereotypical.</li>
+        <li><strong>Alignment targets explicit requests:</strong> the same model that refuses an explicitly offensive request
+          answers the word-association probe in a fully stereotyped way, so a guard that only reads the surface request
+          misses it.</li>
+        <li><strong>Refusals depend on the target group,</strong> which an attacker can exploit by choosing the target.</li>
+        <li><strong>Humour works as a wrapper</strong> for a harmful request.</li>
+      </ul>
+      <p class="note">Pilot observations, not statistics: one sample per cell, a forced binary choice, fixed word order and no
+        non-humour control yet. Next step: rerun through APIs with fixed model versions, 10 or more samples per cell,
+        randomised order and a "neither" option.</p>
+    </div>
+
+    <p class="muted">What's next: choose model sets for the toxicity and memory-attack studies, finish the persona
+      experiments, build the attacker–defender loop with SFT on GPU, and turn the pilot into a proper experiment.</p>
   </section>
 
   <section id="projects">
