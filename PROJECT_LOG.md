@@ -1,5 +1,5 @@
 # Project log: keshav-talwar.github.io
-<!-- last-updated: 2026-11-22T10:22:12Z (maintained by /updaterepo) -->
+<!-- last-updated: 2026-11-28T08:44:32Z (maintained by /updaterepo) -->
 
 ## Current state
 - Single static page `index.html` (no build step): fixed left sidebar (KT avatar placeholder, name,
@@ -12,6 +12,9 @@
 - Verified with Playwright screenshots at 1366px (light + dark) and 390px (mobile): no horizontal scroll.
 - **LIVE** at https://keshav-talwar.github.io since 2026-11-22 14:51 IST (GitHub Pages, branch `main`, path `/`,
   HTTPS enforced). Pushing to `main` redeploys in about a minute.
+- Facts as of 2026-11-28: CGPA **8.65/10 (after Semester 2)**; DTUnator built **solo** at BrainWave 2.0;
+  SR DTU entry says **basic** computer-vision work only; Experience has a **Student Volunteer, HPC & AI
+  Workshop (SAU · DTU · C-DAC), Oct 2026** entry plus a [10/2026] news item.
 
 ## Tried: don't repeat
 | Approach | Last tried | Result | Why it failed / note |
@@ -22,6 +25,9 @@
 | Site name `keshavt.github.io` / `keshavtalwar` / `keshavv` | 2026-11-22 | ❌ Usernames taken (keshavt 2014, KeshavTalwar 2020 not Keshav's, keshavv 2016) | User site must equal the GitHub username |
 | Username availability check via `gh api users/X -q .login` | 2026-11-22 | ❌ Reported free names as "taken" | A 404 prints JSON to stdout; check the exit code instead |
 | Waiting on the old `Keshav-cse.github.io` repo name | 2026-11-22 | ❌ Abandoned | Account renamed to `keshav-talwar`; folder + links updated |
+| Describing SR DTU work as "computer-vision detection and classification pipelines (OpenCV + DL inference)" | 2026-11-28 | ❌ Keshav: overstated | Keshav's CV skill is basic: say "basic computer-vision work (OpenCV preprocessing, pretrained detection models)" |
+| Showing BrainWave 2.0 without "solo", or as an SR DTU activity | 2026-11-28 | ❌ Keshav corrected it | It was a solo entry, unrelated to SR DTU |
+| CGPA 8.9 (Sem 1) | 2026-11-28 | ❌ stale | 8.65 after Sem 2; check PROFILE.md before quoting a CGPA |
 | Driving GitHub settings with Playwright | 2026-11-22 | ⚠️ Not used | Fresh browser isn't signed in; would need password/2FA. Claude in Chrome extension wasn't connected |
 
 ## What worked
@@ -43,6 +49,12 @@
 - [ ] Update when the paper's review outcome is known.
 
 ## History
+### 2026-11-28: corrections + workshop volunteer entry
+- Did: CGPA 8.9 → 8.65 (after Sem 2), "(solo)" on BrainWave in Projects and News, SR DTU line toned down to
+  basic CV (`a5a18c0`); added the SAU/DTU/C-DAC HPC & AI workshop volunteer entry and news item (`fca14b8`).
+- Result: pushed to `main`. Not re-screenshotted after these text-only edits.
+- Note: certificate photo (`~/Downloads/IMG_9717.HEIC`) deliberately NOT put on the site (shows signatures).
+
 ### 2026-11-22 (later): venue mentions removed
 - Did: removed every FLMSec mention from the site; paper .tex files and README.txt left untouched (they're the manuscript itself)
 
